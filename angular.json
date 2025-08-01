@@ -15,9 +15,10 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular/build:application",
+          "builder": "ngx-build-plus:browser",
           "options": {
-            "browser": "src/main.ts",
+            "outputPath": "dist/taskflow-functional",
+						"index": "src/index.html",
             "polyfills": [
               "zone.js"
             ],
@@ -31,7 +32,11 @@
             ],
             "styles": [
               "src/styles.scss"
-            ]
+            ],
+						"scripts": [],
+						"main": "src/main.ts",
+						"extraWebpackConfig": "webpack.config.js",
+						"commonChunk": false
           },
           "configurations": {
             "production": {
@@ -47,7 +52,8 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "extraWebpackConfig": "webpack.prod.config.js"
             },
             "development": {
               "optimization": false,
@@ -58,19 +64,25 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular/build:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "taskflow-functional:build:production"
+              "buildTarget": "taskflow-functional:build:production",
+              "extraWebpackConfig": "webpack.prod.config.js"
             },
             "development": {
               "buildTarget": "taskflow-functional:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+						"port": 4203,
+						"publicHost": "http://localhost:4203",
+						"extraWebpackConfig": "webpack.config.js"
+					}
         },
         "extract-i18n": {
-          "builder": "@angular/build:extract-i18n"
+          "builder": "@angular-devkit/build-angular:extract-i18n"
         },
         "test": {
           "builder": "@angular/build:karma",
@@ -94,5 +106,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "e2adeed9-aee3-4ac4-8295-d11bc7fdc1a3"
   }
 }
