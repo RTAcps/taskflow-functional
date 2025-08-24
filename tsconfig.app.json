@@ -3,12 +3,16 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "es2022",
+    "module": "ES2022",
     "outDir": "./out-tsc/app",
     "types": []
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts", 
+    "src/app/app.component.ts"
+  ],
+  "files": [
+    "src/main.ts"
   ],
   "exclude": [
     "src/**/*.spec.ts"

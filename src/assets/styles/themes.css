@@ -1,0 +1,54 @@
+/* 
+ * Tema CSS para o TaskFlow Functional
+ * Este arquivo define as variáveis CSS para os temas claro e escuro
+ */
+
+/* Tema claro - padrão */
+:root {
+    /* Cores primárias */
+    --primary-color: #3B82F6;
+    --primary-color-rgb: 59, 130, 246;
+    --primary-color-text: #ffffff;
+    
+    /* Cores de superfície */
+    --surface-ground: #F8F9FA;
+    --surface-section: #ffffff;
+    --surface-card: #ffffff;
+    --surface-overlay: #ffffff;
+    --surface-border: #dee2e6;
+    --surface-hover: #f2f4f6;
+    
+    /* Cores de texto */
+    --text-color: #495057;
+    --text-color-secondary: #6c757d;
+    
+    /* Outros elementos de UI */
+    --focus-ring: 0 0 0 2px rgba(59, 130, 246, 0.25);
+    --highlight-bg: #fff6dd;
+    --highlight-text-color: #212529;
+}
+
+/* Tema escuro */
+.dark-theme {
+    /* Cores primárias */
+    --primary-color: #6aa1f7;
+    --primary-color-rgb: 106, 161, 247;
+    --primary-color-text: #ffffff;
+    
+    /* Cores de superfície */
+    --surface-ground: #121212;
+    --surface-section: #1e1e1e;
+    --surface-card: #262626;
+    --surface-overlay: #262626;
+    --surface-border: #404040;
+    --surface-hover: #333333;
+    
+    /* Cores de texto */
+    --text-color: #e5e7eb;
+    --text-color-secondary: #9ca3af;
+    
+    /* Outros elementos de UI */
+    --focus-ring: 0 0 0 2px rgba(106, 161, 247, 0.3);
+    --highlight-bg: #38332c;
+    --highlight-text-color: #f3f3f3;
+}
