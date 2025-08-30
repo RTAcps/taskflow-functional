@@ -1,0 +1,29 @@
+[build]
+  publish = "dist/taskflow-functional"
+  command = "pnpm run build:prod"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://taskflow-shell.netlify.app"
+    Access-Control-Allow-Methods = "GET, OPTIONS, HEAD"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+
+[[headers]]
+  for = "/remoteEntry.js"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://taskflow-shell.netlify.app"
+    Access-Control-Allow-Methods = "GET, OPTIONS, HEAD"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://taskflow-shell.netlify.app"
+    Access-Control-Allow-Methods = "GET, OPTIONS, HEAD"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
