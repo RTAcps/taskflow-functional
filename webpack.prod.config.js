@@ -1,20 +1,22 @@
 const { withModuleFederationPlugin, shareAll } = require('@angular-architects/module-federation/webpack');
 
-/**
- * Configuração do Module Federation otimizada para produção
- * com foco em evitar o erro "Shared module is not available for eager consumption"
- */
 module.exports = withModuleFederationPlugin({
+    output: {
+    publicPath: "https://taskflow-component.netlify.app/"
+  },
   name: 'taskflowFunctional',
+  filename: 'remoteEntry.js',
   exposes: {
     './Module': './src/app/app.component.ts',
     './Routes': './src/app/app.routes.ts',
-    './AnalyticsReportComponent': './src/app/features/reports/analytics-report.component.ts'
+    './AnalyticsReportComponent': './src/app/features/reports/analytics-report.component.ts',
+    './DashboardComponent': './src/app/features/dashboard/dashboard.component',
+    './ReportFormComponent': './src/app/features/reports/report-form.component.ts',
+    './ReportDetailComponent': './src/app/features/reports/report-detail.component.ts'
   },
-  // Configuração de compartilhamento para produção
   shared: {
     ...shareAll({ singleton: true, strictVersion: false, requiredVersion: false, eager: false }),
   },
-  // Usar um formato de biblioteca mais compatível
   library: { type: 'var', name: 'taskflowFunctional' },
 });
+
