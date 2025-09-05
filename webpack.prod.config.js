@@ -11,9 +11,18 @@ const baseConfig = withModuleFederationPlugin({
     './ReportFormComponent': './src/app/features/reports/report-form.component.ts',
     './ReportDetailComponent': './src/app/features/reports/report-detail.component.ts'
   },
-
   shared: {
-    ...shareAll({ singleton: true, strictVersion: false, requiredVersion: false, eager: false }),
+    '@angular/core': { singleton: true, strictVersion: false, requiredVersion: 'auto', eager: true },
+    '@angular/common': { singleton: true, strictVersion: false, requiredVersion: 'auto', eager: true },
+    '@angular/common/http': { singleton: true, strictVersion: false, requiredVersion: 'auto', eager: true },
+    '@angular/router': { singleton: true, strictVersion: false, requiredVersion: 'auto', eager: true },
+    'rxjs': { singleton: true, strictVersion: false, requiredVersion: 'auto', eager: true },
+    ...shareAll({
+      singleton: true,
+      strictVersion: false,
+      requiredVersion: 'auto',
+      eager: false,
+    }),
   },
 });
 
